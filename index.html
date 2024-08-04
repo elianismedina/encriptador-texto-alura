@@ -23,22 +23,28 @@
       <nav
         class="flex flex-row gap-8 mx-auto p-4 items-start justify-start font-montserrat max-w-5xl "
       >
-       <p class="text-secondary">Logo</p>
+      <p class="text-secondary">Logo</p>
       </nav>
     </header>
     <main
-      class="mx-auto mt-8 flex h-full flex-col items-center justify-between gap-8 md:grid md:max-w-5xl md:grid-cols-2 mb-4 p-8"
+      class="mx-auto mt-8 flex h-full flex-col items-center justify-between gap-8 md:grid md:max-w-5xl md:grid-cols-6 mb-4 p-8"
     >
-      <label for="text" class="text-secondary">Ingrese el texto aquí</label>
-      <textarea
-        name="text"
-        id="text"
-        class="bg-secondary text-light w-full h-48 p-4 rounded-lg"
-        placeholder="Escribe aquí el texto que deseas encriptar"
-      ></textarea>
-      <div class="flex flex-col gap-4">
+      <div class="hidden md:grid">Logo</div>
+      <div class="flex flex-col gap-4 w-full md:col-span-3">
+        <label for="text" class="text-secondary">Ingrese el texto aquí</label>
+        <textarea
+          cols="30"
+          rows="10"
+          name="textousuario"
+          id="textousuario"
+          required
+          class="bg-secondary text-light h-48 rounded-lg font-montserrat"
+        >
+        </textarea>
+        <p class="text-secondary text-xs">Solo letras minúsculas y sin acentos</p>
         <button
-          class="bg-secondary text-primary font-montserrat font-semibold p-4 rounded-lg"
+          class="bg-dark text-primary font-montserrat font-semibold p-4 rounded-lg"
+          onclick="encriptarTexto()"
         >
           Encriptar
         </button>
@@ -47,9 +53,15 @@
         >
           Desencriptar
         </button>
-        <div class="bg-secondary w-full p-4 rounded-lg">
-          <p class="font-montserrat text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad fugiat totam debitis blanditiis? Tenetur maxime facere dignissimos eligendi animi iste, sint soluta. Maxime, omnis minus eos similique illum alias nostrum?</p>
-        </div>
+      </div>
+      <div class="md:col-span-2 bg-secondary rounded-lg p-8">
+
+        <img src="./images/Muñeco.png" alt="ningin texto encontrado" class="hidden md:grid md:mt-8" width="330" height="300">
+        <h2 class="font-montserrat font-bold mb-4 text-primary text-center mt-4">Ningún mensaje fue <br> encontrado</h2>
+        <p class="font-montserrat p-4 w-full text-center">Ingresa el texto que deseas encriptar o desencriptar</p>
+      </div>
+      <script src="app.js"></script>
+
     </main>
     <footer
       class="flex items-center justify-center bg-primary h-full p-6 text-xs"

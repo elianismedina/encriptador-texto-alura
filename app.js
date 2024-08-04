@@ -1,17 +1,28 @@
 
 
-function encriptarTexto() {
+function encriptar() {
     let textoaEncriptar = document.getElementById("textousuario").value;
     console.log(textoaEncriptar);
-    console.log(containsUppercase(textoaEncriptar));
-    console.log(containsNumber(textoaEncriptar));
-    console.log(containsSpecialCharacter(textoaEncriptar));
+    
     if(containsUppercase(textoaEncriptar) || containsNumber(textoaEncriptar) || containsSpecialCharacter(textoaEncriptar)){
         alert("El texto no debe contener mayusculas, numeros o caracteres especiales");
 
     }
     else{
-        alert("El texto es válido");
+        console.log("Encriptando...");
+        const matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o","ober"], ["u","ufat"]];
+        const textoValidoParaEncriptar = textoaEncriptar
+        for(let i=0; i < matrizCodigo.length; i++){
+            if(textoValidoParaEncriptar.includes(matrizCodigo[i][0])){
+                textoEncriptado = textoValidoParaEncriptar.replace(matrizCodigo[i][0], matrizCodigo[i][1]);
+
+            }
+
+        }
+        console.log(textoEncriptado);
+        return textoEncriptado;
+        
+
     }
 
 }

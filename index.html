@@ -44,7 +44,7 @@
         <p class="text-secondary text-xs">Solo letras minúsculas y sin acentos</p>
         <button
           class="bg-dark text-primary font-montserrat font-semibold p-4 rounded-lg"
-          onclick="encriptarTexto()"
+          onclick="encriptar()"
         >
           Encriptar
         </button>
@@ -54,11 +54,16 @@
           Desencriptar
         </button>
       </div>
-      <div class="md:col-span-2 bg-secondary rounded-lg p-8">
+      <div class="md:col-span-2 bg-secondary rounded-lg p-8 w-full">
 
-        <img src="./images/Muñeco.png" alt="ningin texto encontrado" class="hidden md:grid md:mt-8" width="330" height="300">
-        <h2 class="font-montserrat font-bold mb-4 text-primary text-center mt-4">Ningún mensaje fue <br> encontrado</h2>
-        <p class="font-montserrat p-4 w-full text-center">Ingresa el texto que deseas encriptar o desencriptar</p>
+        <img src="./images/Muñeco.png" alt="ningún texto encontrado" class="hidden md:grid md:mt-8" width="330" height="300">
+        <p class="font-montserrat font-bold mb-4 text-primary text-center mt-4"></p>
+        <p class="font-montserrat p-4 w-full text-center" id="mensaje"></p>
+        <button
+        id="copiar"
+        class="bg-dark text-primary font-montserrat font-semibold p-4 rounded-lg w-full"
+        onclick="btnEncriptar()"
+        >Copiar</button>
       </div>
       <script src="app.js"></script>
 

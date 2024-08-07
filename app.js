@@ -1,10 +1,46 @@
+var btnEncriptar = document.querySelector("#encriptar");
+var btnDesencriptar = document.querySelector("#desencriptar");
+var header = document.querySelector("#headerresultado");
+var mensaje = document.querySelector("#mensajeresultado");
+var mensajeFinal = document.querySelector("#resultado");
+var btnCopiar = document.querySelector("#copiar");
+var muneco = document.querySelector("#imagen");
+var textoEncriptado = "";
+var textoaEncriptar = document.querySelector("#textousuario").value;
 
 
+
+function setInitialValues(){
+    muneco.classList.remove("hidden");
+    header.innerHTML = "Ningún mensaje fue encontrado";
+    mensaje.innerHTML = "Ingresa el texto que deseas encriptar o desencriptar";
+    mensajeFinal.innerHTML = "";
+}
+setInitialValues();
+
+btnEncriptar.addEventListener("click", function (event){
+    event.preventDefault();
+    mensajeFinal.innerHTML = encriptar();
+});
+function replaceLetters(textoaEncriptar){
+    switch(textoaEncriptar){
+        case "e":
+            return "enter";
+        case "i":
+            return "imes";
+        case "a":
+            return "ai";
+        case "o":
+            return "ober";
+        case "u":
+            return "ufat";
+        default:
+            return textoaEncriptar;
+    }
+
+}
 function encriptar() {
-    let textoEncriptado = "";
-    const textoaEncriptar = document.getElementById("textousuario").value;
-    const mensaje = document.getElementById("mensaje").value;
-    console.log(textoaEncriptar);
+    textoaEncriptar = document.querySelector("#textousuario").value;
 
     if(containsUppercase(textoaEncriptar) || containsNumber(textoaEncriptar) || containsSpecialCharacter(textoaEncriptar)){
         alert("El texto no debe contener mayusculas, numeros o caracteres especiales");
@@ -12,18 +48,13 @@ function encriptar() {
     }
     else{
         console.log("Encriptando...");
-        const matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o","ober"], ["u","ufat"]];
-        const textoValidoParaEncriptar = textoaEncriptar
-        for(let i=0; i < matrizCodigo.length; i++){
-            if(textoValidoParaEncriptar.includes(matrizCodigo[i][0])){
-                textoEncriptado = textoValidoParaEncriptar.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1]);
-
-            }
-        }
+        var textoValidoParaEncriptar = textoaEncriptar
+        var textoEncriptado = textoValidoParaEncriptar.replace(/a|e|i|o|u/g, replaceLetters);
         console.log(textoEncriptado);
         return textoEncriptado;
     }
-    
+
+
 
 }
 function containsUppercase(textoaEncriptar) {

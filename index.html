@@ -38,30 +38,32 @@
           name="textousuario"
           id="textousuario"
           required
-          class="bg-secondary text-light h-48 rounded-lg font-montserrat"
+          class="bg-secondary text-light h-48 rounded-lg font-montserrat text-xl"
         >
         </textarea>
         <p class="text-secondary text-xs">Solo letras minúsculas y sin acentos</p>
         <button
           class="bg-dark text-primary font-montserrat font-semibold p-4 rounded-lg"
-          onclick="encriptar()"
+          id="encriptar"
         >
           Encriptar
         </button>
         <button
           class="bg-secondary text-primary font-montserrat font-semibold p-4 rounded-lg"
+          id="desencriptar"
         >
           Desencriptar
         </button>
       </div>
       <div class="md:col-span-2 bg-secondary rounded-lg p-8 w-full">
 
-
-        <p class="font-montserrat font-bold mb-4 text-primary text-center mt-4"></p>
-        <textarea name="encryptedtext" id="mensaje" class="w-full bg-light rounded-lg text-secondary" rows="10" cols="30"></textarea>
+        <img src="./images/Muñeco.png" alt="Muneco" id="imagen" class="hidden">
+        <p class="font-montserrat font-bold mb-4 text-primary text-center mt-4" id="headerresultado"></p>
+        <p class="font-montserrat font-medium text-dark text-center" id="mensajeresultado"></p>
+        <textarea name="resultado" id="resultado" class="hidden w-full bg-light rounded-lg text-secondary" rows="6" cols="30"></textarea>
         <button
         id="copiar"
-        class="bg-dark text-primary font-montserrat font-semibold p-4 rounded-lg w-full"
+        class="hidden bg-dark text-primary font-montserrat font-semibold p-4 rounded-lg w-full"
         onclick="btnEncriptar()"
         >Copiar</button>
       </div>

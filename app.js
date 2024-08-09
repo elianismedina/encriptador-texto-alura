@@ -20,7 +20,7 @@ setInitialValues();
 
 btnEncriptar.addEventListener("click", function (event){
     event.preventDefault();
-    mensajeFinal.innerHTML = encriptar();
+    showResults();
 });
 function replaceLetters(textoaEncriptar){
     switch(textoaEncriptar){
@@ -53,8 +53,14 @@ function encriptar() {
         console.log(textoEncriptado);
         return textoEncriptado;
     }
-
-
+}
+function showResults(){
+    muneco.classList.add("hidden");
+    header.innerHTML = "Tu mensaje fue encriptado";
+    mensaje.innerHTML = "Tu mensaje encriptado es:";
+    mensajeFinal.classList.remove("hidden");
+    mensajeFinal.innerHTML = encriptar();
+    btnCopiar.classList.remove("hidden");
 
 }
 function containsUppercase(textoaEncriptar) {

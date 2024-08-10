@@ -13,7 +13,7 @@ var textoaDesencriptar = document.querySelector("#textousuario").value;
 
 
 function setInitialValues(){
-    muneco.classList.remove("hidden");
+    
     header.innerHTML = "Ningún mensaje fue encontrado";
     mensaje.innerHTML = "Ingresa el texto que deseas encriptar o desencriptar";
     mensajeFinal.innerHTML = "";
@@ -36,7 +36,20 @@ btnCopiar.addEventListener("click", function (event){
     var copyText = document.querySelector("#resultado");
     copyText.select();
     document.execCommand("copy");
-    alert("Mensaje copiado al portapapeles");
+    Toastify({
+        text: "Mensaje copiado al portapapeles",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "left",
+        stopOnFocus: true,
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function(){}
+      }).showToast();
 
 });
 
@@ -77,7 +90,21 @@ function encriptar() {
     textoaEncriptar = document.querySelector("#textousuario").value;
 
     if(containsUppercase(textoaEncriptar) || containsNumber(textoaEncriptar) || containsSpecialCharacter(textoaEncriptar)){
-        alert("El texto no debe contener mayusculas, numeros o caracteres especiales");
+        
+        Toastify({
+            text: "El texto no debe contener mayusculas, numeros o caracteres especiales",
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "left",
+            stopOnFocus: true,
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            onClick: function(){}
+          }).showToast();
 
     }
     else{
@@ -92,7 +119,20 @@ function desencriptar(){
     textoaDesencriptar = document.querySelector("#textousuario").value;
 
     if(containsUppercase(textoaDesencriptar) || containsNumber(textoaDesencriptar) || containsSpecialCharacter(textoaDesencriptar)){
-        alert("El texto no debe contener mayusculas, numeros o caracteres especiales");
+        Toastify({
+            text: "El texto no debe contener mayusculas, numeros o caracteres especiales",
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "left",
+            stopOnFocus: true,
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            onClick: function(){}
+          }).showToast();
 
     }
     else{
@@ -104,21 +144,23 @@ function desencriptar(){
     }
 }
 function showResultsEncriptar(){
-    muneco.classList.add("hidden");
+
     header.innerHTML = "Tu mensaje fue encriptado";
     mensaje.innerHTML = "Tu mensaje encriptado es:";
     mensajeFinal.classList.remove("hidden");
-    mensajeFinal.innerHTML = encriptar();
-    btnCopiar.classList.remove("hidden");
 
+    btnCopiar.classList.remove("hidden");
+    muneco.classList.remove("md:flex");
+    mensajeFinal.innerHTML = encriptar();
 }
 function showResultsDesencriptar(){
-    muneco.classList.add("hidden");
+
     header.innerHTML = "Tu mensaje fue desencriptado";
     mensaje.innerHTML = "Tu mensaje desencriptado es:";
     mensajeFinal.classList.remove("hidden");
+    muneco.classList.remove("md:flex");
+    btnCopiar.classList.add("hidden");
     mensajeFinal.innerHTML = desencriptar();
-    btnCopiar.classList.remove("hidden");
 
 }
 function containsUppercase(textoaEncriptar) {

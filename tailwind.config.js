@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         "krona one": ["Krona One", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
+        chauphilomeneone: ["Chau Philomene One", "sans-serif"],
       },
     },
     plugins: [],

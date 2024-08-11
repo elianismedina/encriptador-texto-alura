@@ -33,6 +33,10 @@ btnDesencriptar.addEventListener("click", function (event){
 
 btnCopiar.addEventListener("click", function (event){
     event.preventDefault();
+    copyText();
+
+});
+function copyText(){
     var copyText = document.querySelector("#resultado");
     copyText.select();
     document.execCommand("copy");
@@ -50,9 +54,7 @@ btnCopiar.addEventListener("click", function (event){
         },
         onClick: function(){}
       }).showToast();
-
-});
-
+}
 function replaceLetters(textoaEncriptar){
     switch(textoaEncriptar){
         case "e":

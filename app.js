@@ -151,7 +151,11 @@ function showResultsEncriptar(){
 
     btnCopiar.classList.remove("hidden");
     muneco.classList.remove("md:flex");
-    mensajeFinal.innerHTML = encriptar();
+    if(encriptar() != undefined){
+        mensajeFinal.innerHTML = encriptar()
+    }else{
+        mensajeFinal.innerHTML = ""
+    }
 }
 function showResultsDesencriptar(){
 
@@ -160,7 +164,11 @@ function showResultsDesencriptar(){
     mensajeFinal.classList.remove("hidden");
     muneco.classList.remove("md:flex");
     btnCopiar.classList.add("hidden");
-    mensajeFinal.innerHTML = desencriptar();
+    if(desencriptar() != undefined){
+        mensajeFinal.innerHTML = desencriptar()
+    }else{
+        mensajeFinal.innerHTML = ""
+    }
 
 }
 function containsUppercase(textoaEncriptar) {
